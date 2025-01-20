@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Capture</title>
+    <style>
+      /* Global reset and box sizing */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Body styling */
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7f6;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Adjusted to add margin from the top */
+        height: 100vh;
+        padding-top: 20px; /* Added margin from top */
+      }
+
+      /* Center the form */
+      .form-container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px; /* Increased horizontal width */
+        min-width: 400px; /* Ensure the form is not too narrow */
+        max-height: 700px;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      label {
+        font-size: 0.9rem;
+        color: #555;
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      input, textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 0.9rem;
+        background-color: #fafafa;
+      }
+
+      input:focus, textarea:focus {
+        /* border-color: #007BFF; */
+        outline: none;
+      }
+
+      textarea {
+        resize: none;
+        min-height: 100px;
+        margin-bottom: 40px;
+        font-family: 'Arial', sans-serif;
+      }
+
+      /* Button styling */
+      button {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button#startRecording {
+        background-color: #28a745;
+        font-size: 1rem;
+        width: calc(33.33% - 10px); /* Adjust width to fit on one line */
+      }
+
+      button#startRecording:hover {
+        background-color: #218838;
+      }
+
+      button#stopRecording {
+        background-color: #dc3545;
+        font-size: 1rem;
+        width: calc(33.33% - 10px); /* Adjust width to fit on one line */
+      }
+
+      button#stopRecording:hover {
+        background-color: #c82333;
+      }
+
+      button#sendText {
+        background-color: #007BFF;
+        font-size: 1rem;
+        width: calc(33.33% - 10px); /* Adjust width to fit on one line */
+      }
+
+      button#sendText:hover {
+        background-color: #0056b3;
+      }
+
+      .generate-ticket-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      button#generateTicket {
+        background-color: #007BFF;
+        font-size: 1.2rem;
+        width: 50%;
+        margin: 10px auto; 
+      }
+
+      button#generateTicket:hover {
+        background-color: #0056b3;
+      }
+
+      /* Icon styling */
+      button i {
+        margin-right: 8px;
+      }
+
+      /* Adjusting the layout of the form */
+      .button-group {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Ticket Form</h2>
+
+      <label for="projectName">Project Name:</label>
+      <input type="text" id="projectName" name="projectName" />
+
+      <label for="department">Department:</label>
+      <input type="text" id="department" name="department" />
+
+      <label for="severity">Severity:</label>
+      <input type="text" id="severity" name="severity" />
+
+      <label for="additionalNotes">Additional Notes</label>
+      <input type="text" id="additionalNotes" name="additionalNotes" />
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description"></textarea>
+
+      <div class="button-group">
+        <button id="startRecording">
+          <i>&#9654;</i> Start
+        </button>
+        <button id="stopRecording" disabled>
+          <i>&#9632;</i> Stop
+        </button>
+        <button id="sendText">
+          Send Text
+        </button>
+      </div>
+
+      <div class="generate-ticket-container">
+        <button id="generateTicket">Generate Ticket</button>
+      </div>
+    </div>
+
+    <script src="script2.js" defer></script>
+  </body>
+</html>
+
+
+
+
+ 
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Capture</title>
+    <script src="script2.js" defer></script>
+  </head>
+  <body>
+    <h2>Ticket Form</h2>
+
+    <label for="projectName">Project Name:</label>
+    <input type="text" id="projectName" name="projectName" /><br /><br />
+
+    <label for="department">Department:</label>
+    <input type="text" id="department" name="department" /><br /><br />
+
+    <label for="severity">Severity:</label>
+    <input type="text" id="severity" name="severity" /><br /><br />
+
+    <label for="additionalNotes">Additional Notes</label>
+    <input type="text" id="additionalNotes" name="additionalNotes" /><br /><br />
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" style="width: 400px; height: 200px;"></textarea><br /><br />
+
+    <button id="startRecording">Start Recording</button>
+    <button id="stopRecording" disabled>Stop Recording</button>
+    <button id="sendText">Send text</button>
+    <button id="generateTicket">Generate Ticket</button>
+  </body>
+</html> --> 
