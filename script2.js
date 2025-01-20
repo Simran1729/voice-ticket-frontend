@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // console.log("Sending data to backend:", data);
 
         try {
-            const response = await fetch("http://localhost:3000/process-text", {
+            const response = await fetch("https://voice-ticket-backend.vercel.app/process-text", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -150,7 +150,7 @@ async function createTicket() {
     };
 
     try {
-        const response = await fetch("http://localhost:3000/api/create-ticket", {
+        const response = await fetch("https://voice-ticket-backend.vercel.app/api/create-ticket", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(ticketData),
